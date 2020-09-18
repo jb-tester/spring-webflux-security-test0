@@ -7,7 +7,7 @@ import reactor.core.publisher.Mono;
 @Service
 public class SecuredService {
 
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     public Mono<String> userMethod() {
         return Mono.just("Hello!!!");
     }
